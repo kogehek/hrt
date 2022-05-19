@@ -12,14 +12,12 @@ public class Map : MonoBehaviour
     public Camera cam;
     public Cell cell;
     public Unit unit;
-    public ActionUnit.Added added;
 
 
     void Start()
     {
-        unit = null;
-
-        mapState.grid = new Cell[10,10];
+        // unit = null;
+        mapState.grid = new Cell[10, 10];
         for (var i = 0; i < 10; i++)
         {
             for (var j = 0; j < 10; j++)
@@ -31,41 +29,43 @@ public class Map : MonoBehaviour
                 }
                 cell.InitPoss(i, j);
                 //  cell;
-                mapState.grid[j,i] = Instantiate(cell, new Vector3((i * 1.732051f) + zShift , 0, j *1.5f), Quaternion.identity, gameObject.transform);
-            }            
+                mapState.grid[j, i] = Instantiate(cell, new Vector3((i * 1.732051f) + zShift, 0, j * 1.5f), Quaternion.identity, gameObject.transform);
+            }
         }
-
     }
 
     void Update()
     {
-        
+
     }
 
-    public void OnPosition(InputValue val)
+    public void SetUnit(Vector3 mousePos)
     {
-        
-        if (added.state != ActionUnit.Added.State.SELECTED_UNIT) {
-            return;
-        }
-        Vector3 mousePos = val.Get<Vector2>();
+        print(mousePos);
         Ray ray = cam.ScreenPointToRay(mousePos);
         RaycastHit hit;
+
 
         if (!Physics.Raycast(ray, out hit))
         {
             return;
-        } 
-        if (!hit.transform.gameObject.GetComponent<Cell>()) {
+        }
+
+        if (!hit.transform.gameObject.GetComponent<Cell>())
+        {
             return;
         }
-        
-        if (!unit) {
-            unit = Instantiate(added.unit, hit.transform);
-        } else {
+
+
+        if (!unit)
+        {
+            unit = Instantiate(unit, hit.transform);
+        }
+        else
+        {
             unit.transform.position = hit.transform.position;
         }
-        
+
     }
 }
 

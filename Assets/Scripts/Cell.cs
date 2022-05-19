@@ -12,20 +12,22 @@ public class Cell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void Select() {
-        gameObject.GetComponent<MeshRenderer> ().material = canAction;
+    public void Select()
+    {
+        gameObject.GetComponent<MeshRenderer>().material = canAction;
     }
 
-    public void  InitPoss(int x , int y) {
+    public void InitPoss(int x, int y)
+    {
         this.x = x;
         this.y = y;
     }
