@@ -8,16 +8,15 @@ using UnityEngine.InputSystem;
 
 public class Map : MonoBehaviour
 {
-    public MapState mapState;
+    // public MapState mapState;
     public Camera cam;
     public Cell cell;
     public Unit unit;
 
-
     void Start()
     {
         // unit = null;
-        mapState.grid = new Cell[10, 10];
+        // mapState.grid = new Cell[10, 10];
         for (var i = 0; i < 10; i++)
         {
             for (var j = 0; j < 10; j++)
@@ -29,7 +28,8 @@ public class Map : MonoBehaviour
                 }
                 cell.InitPoss(i, j);
                 //  cell;
-                mapState.grid[j, i] = Instantiate(cell, new Vector3((i * 1.732051f) + zShift, 0, j * 1.5f), Quaternion.identity, gameObject.transform);
+                // mapState.grid[j, i] = Instantiate(cell, new Vector3((i * 1.732051f) + zShift, 0, j * 1.5f), Quaternion.identity, gameObject.transform);
+                Instantiate(cell, new Vector3((i * 1.732051f) + zShift, 0, j * 1.5f), Quaternion.identity, gameObject.transform);
             }
         }
     }

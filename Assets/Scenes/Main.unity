@@ -612,9 +612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383173be57df2e2458bc054575b0f610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapState: {fileID: 11400000, guid: 99d8b4a5f150b1544a77cd3d9b22add1, type: 2}
   cam: {fileID: 330585545}
   cell: {fileID: 6991862083033153988, guid: f92aa1699e945c24eae81e6ddc4773bd, type: 3}
+  unit: {fileID: 0}
 --- !u!4 &1283131783
 Transform:
   m_ObjectHideFlags: 0
